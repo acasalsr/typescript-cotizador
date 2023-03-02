@@ -23,16 +23,16 @@ export default function Form() {
                     />
                 </View>
                 <Picker
-                    style={pickerSelectedStyle.inputAndroid}
+                    style={[pickerSelectedStyle.inputAndroid, pickerSelectedStyle.inputIOS]}
                     selectedValue={selectedLanguage}
                     onValueChange={(itemValue, itemIndex) =>
                         setSelectedLanguage(itemValue)
                     }
                 >
-                    <Picker.Item label="3 meses" value="3" />
-                    <Picker.Item label="6 meses" value="6" />
-                    <Picker.Item label="9 meses" value="9" />
-                    <Picker.Item label="12 meses" value="12" />
+                    <Picker.Item style={styles.pickerItem} label="3 meses" value="3" />
+                    <Picker.Item style={styles.pickerItem} label="6 meses" value="6" />
+                    <Picker.Item style={styles.pickerItem} label="9 meses" value="9" />
+                    <Picker.Item style={styles.pickerItem} label="12 meses" value="12" />
                 </Picker>
             </View>
         </>
@@ -70,11 +70,12 @@ const styles = StyleSheet.create({
         width: "35%",
     },
 
-    // picker: {
-    //     width: "100%",
-    //     backgroundColor: "#fff",
-    //     borderRadius: 30,
-    // }
+    pickerItem: {
+        width: "100%",
+        backgroundColor: "red",
+        borderRadius: 10,
+        height: 50,
+    }
 
 });
 
@@ -85,7 +86,7 @@ const pickerSelectedStyle = StyleSheet.create({
         paddingHorizontal: 10,
         borderwidth: 1,
         borderColor: "grey",
-        borderRadius: 4,
+        borderRadius: 10,
         color: "black",
         paddingRight: 30,
         backgroundColor: "#fff",
@@ -97,7 +98,7 @@ const pickerSelectedStyle = StyleSheet.create({
         paddingHorizontal: 10,
         borderwidth: 1,
         borderColor: "grey",
-        borderRadius: 4,
+        borderRadius: 10,
         color: "black",
         paddingRight: 30,
         backgroundColor: "#fff",
