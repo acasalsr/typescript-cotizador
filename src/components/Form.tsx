@@ -42,10 +42,9 @@ export default function Form() {
 const styles = StyleSheet.create({
     wrapperInput: {
         position: "absolute",
-        display: "flex",
+        bottom: 0,
         flexDirection: "column",
         gap: 10,
-        bottom: -90,
         width: "85%",
         height: 180,
         backgroundColor: colors.SECONDARY_COLOR,
@@ -55,7 +54,6 @@ const styles = StyleSheet.create({
         paddingHorizontal: 40,
     },
     containerFlexInput: {
-        display: "flex",
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "center",
@@ -75,6 +73,7 @@ const styles = StyleSheet.create({
         backgroundColor: "red",
         borderRadius: 10,
         height: 50,
+        marginTop: 10,
     }
 
 });
