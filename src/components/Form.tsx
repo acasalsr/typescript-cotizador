@@ -4,7 +4,8 @@ import { View, Text, StyleSheet, TextInput } from "react-native";
 import colors from "../utils/colors";
 import { Picker } from "@react-native-picker/picker";
 
-export default function Form() {
+export default function Form(props: any) {
+    const { setCapital, setInterest, setMonths } = props;
     const [selectedLanguage, setSelectedLanguage] = useState();
 
     return (
@@ -15,19 +16,19 @@ export default function Form() {
                         style={styles.input}
                         placeholder="Cantidad a pedir"
                         keyboardType="numeric"
+                        onChange={(e) => setCapital(e.nativeEvent.text)}
                     />
                     <TextInput
                         style={[styles.input, styles.input2]}
                         placeholder="interés"
                         keyboardType="numeric"
+                        onChange={(e) => setInterest(e.nativeEvent.text)}
                     />
                 </View>
                 <Picker
                     style={[pickerSelectedStyle.inputAndroid, pickerSelectedStyle.inputIOS]}
                     selectedValue={selectedLanguage}
-                    onValueChange={(itemValue, itemIndex) =>
-                        setSelectedLanguage(itemValue)
-                    }
+                    onValueChange={(itemValue) => setMonths(itemValue)}
                 >
                     <Picker.Item style={styles.pickerItem} label="3 meses" value="3" />
                     <Picker.Item style={styles.pickerItem} label="6 meses" value="6" />
