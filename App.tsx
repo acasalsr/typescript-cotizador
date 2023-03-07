@@ -10,12 +10,30 @@ export default function App() {
   const [capital, setCapital] = useState(null);
   const [interest, setInterest] = useState(null);
   const [months, setMonths] = useState(null);
+  const [total, setTotal] = useState(null);
+
+  console.log(total)
+
 
   const calculate = () => {
-    console.log('capital=> ', capital)
-    console.log('interest=> ', interest)
-    console.log('months=> ', months)
+    if (!capital) {
+      console.log("No hay capital");
+    } else if (!interest) {
+      console.log("No hay interes");
+    }
+    else if (!months) {
+      console.log("No hay meses");
+    } else {
+      const i: number = interest / 100;
+      const fee: number = capital / ((1 - Math.pow(i + 1, -months)) / i);
+
+      setTotal({
+        monthlyFee: fee.toFixed(2).replace(".", ","),
+        totalPayable: (fee * months).toFixed(2).replace(".", ","),
+      });
+    }
   };
+
   return (
     <>
       <StatusBar style="auto" />
