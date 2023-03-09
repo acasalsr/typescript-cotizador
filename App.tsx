@@ -55,7 +55,12 @@ export default function App() {
         <View style={bodyStyles.mainBody}>
           <Resultado errorMessage={errorMessage} />
         </View>
-        <FooterButton calculate={calculate} />
+        <FooterButton
+          capital={capital}
+          interest={interest}
+          months={months}
+          calculate={calculate}
+        />
       </View>
     </>
   );
