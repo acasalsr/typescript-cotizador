@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, SafeAreaView } from "react-native";
 import colors from "./src/utils/colors";
@@ -13,7 +13,10 @@ export default function App() {
   const [total, setTotal] = useState<number | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>("");
 
-  console.log(total);
+  useEffect(() => {
+    if (capital && interest && months) calculate();
+    else reset();
+  }, [capital, interest, months]);
 
   const calculate = () => {
     reset();
@@ -53,7 +56,13 @@ export default function App() {
         </SafeAreaView>
 
         <View style={bodyStyles.mainBody}>
-          <Resultado errorMessage={errorMessage} />
+          <Resultado
+            errorMessage={errorMessage}
+            capital={capital}
+            interest={interest}
+            months={months}
+            total={total}
+          />
         </View>
         <FooterButton
           capital={capital}
